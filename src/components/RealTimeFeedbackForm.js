@@ -40,18 +40,27 @@ const RealTimeFeedbackForm = () => {
     setErrors({ ...errors, [fieldName]: errorMessage });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Add your form submission logic here
+    // For example, you can log the form data to the console
+    console.log('Form submitted:', formData);
+  };
+
   return (
-    <div>
+    <form className="form" onSubmit={handleSubmit}>
       
       <label>
         Name:
         <input
           type="text"
           name="name"
+          id="name"
           value={formData.name}
           onChange={handleChange}
         />
-        <div className="error-message">{errors.name}</div>
+        <div className="error-message" id="name-error">{errors.name}</div>
       </label>
       <br />
       <label>
@@ -59,10 +68,11 @@ const RealTimeFeedbackForm = () => {
         <input
           type="text"
           name="email"
+          id="email"
           value={formData.email}
           onChange={handleChange}
         />
-        <div className="error-message">{errors.email}</div>
+        <div className="error-message" id="email-error">{errors.email}</div>
       </label>
       <br />
       <label>
@@ -70,12 +80,15 @@ const RealTimeFeedbackForm = () => {
         <input
           type="password"
           name="password"
+          id="password"
           value={formData.password}
           onChange={handleChange}
         />
-        <div className="error-message">{errors.password}</div>
+        <div className="error-message" id="password-error">{errors.password}</div>
       </label>
-    </div>
+      <br />
+      <button type="submit">Submit</button>
+    </form>
   );
 };
 
