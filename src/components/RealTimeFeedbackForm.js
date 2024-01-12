@@ -28,7 +28,7 @@ const RealTimeFeedbackForm = () => {
         break;
       case 'email':
         // Basic email format validation
-        errorMessage = /\S+@\S+\.\S+/.test(value) ? '' : 'Invalid email address';
+        errorMessage = /\S+@\S+\.\S+/.test(value) ? '' : 'Invalid email format';
         break;
       case 'password':
         errorMessage = value.length < 6 ? 'Password must be at least 6 characters long' : '';
@@ -72,7 +72,7 @@ const RealTimeFeedbackForm = () => {
           value={formData.email}
           onChange={handleChange}
         />
-        <div className="error-message" id="email-error">{errors.email}</div>
+        <div className="error-message" id="name-error">{errors.email}</div>
       </label>
       <br />
       <label>
